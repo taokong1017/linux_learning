@@ -129,6 +129,7 @@ mov sp, x1
 ### 地址翻译表建立
 
 &emsp;&emsp;内核在使能MMU之前，须建立数据、代码对应的虚拟地址和物理地址的映射。
+
 &emsp;&emsp;首先，获取linux页表项的首地址，方法如下：
 
 ```C
@@ -392,7 +393,7 @@ SYM_FUNC_END(__cpu_setup)
 
 ## 主流程切换阶段
 
-&emsp;&emsp;主流程切换包括3部分类型，MMU使能、早期内核映射和kernel_init切换
+&emsp;&emsp;主流程切换包括3部分类型，MMU使能、早期内核页表映射和kernel_init切换
 
 ### MMU使能
 
@@ -443,9 +444,9 @@ __turn_mmu_on_end:
 ENDPROC(__turn_mmu_on)
 ```
 
-### 早期内核映射
+### 早期内核页表映射
 
-&emsp;&emsp;早期内核映射，即根据启动参数和CPU特性，计算内核映射的地址，并调用底层函数完成内核的虚拟地址空间初始化
+&emsp;&emsp;早期内核页表映射，即根据启动参数和CPU特性，计算内核映射地址，并调用底层函数完成内核的虚拟地址空间初始化。
 
 ```c
 adrp x1, early_init_stack
@@ -557,9 +558,11 @@ SYM_FUNC_END(__primary_switched)
 
 ## 内核启动阶段
 
-内核启动阶段，主要完成内核启动功能，其中内核启动入口函数start_kernel的声明如下：
+&emsp;&emsp;内核启动阶段，主要完成内核启动功能，其中内核启动入口函数start_kernel的声明如下：
 
 ```c
 #define __init __section(".init.text")
 asmlinkage __visible __init __no_sanitize_address __noreturn __no_stack_protector void start_kernel(void);
 ```
+
+&emsp;&emsp;内核启动阶段的详尽分析，请参见后续文章。
