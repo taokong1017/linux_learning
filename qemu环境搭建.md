@@ -173,7 +173,7 @@ make ARCH=arm64 CROSS_COMPILE=/home/ws/aarch64-none-elf/bin/aarch64-none-elf- Im
 qemu-system-aarch64 -machine virt -nographic -m size=1024M -cpu cortex-a53 -smp 4 -kernel  /home/ws/Src/linux/arch/arm64/boot/Image -initrd /home/ws/Src/rootfs.cpio.gz -append "root=/dev/ram console=ttyAMA0 rdinit=/linuxrc"
 ```
 
-启动后，输入日志如下：
+启动后，输出日志如下：
 
 ```C
 [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
