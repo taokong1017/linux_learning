@@ -1,7 +1,7 @@
 # Qemu设备树
 &emsp;&emsp;设备树用于描述计算机的硬件配置信息，程序员可以通过设备树来修改硬件配置，例如CPU、内存、网卡、串口等。
 
-&emsp;&emsp;Qemu设备树是qemu-system-aarch64命令运行过程中动态生成的，支持通过命令行参数输出设备信息。
+&emsp;&emsp;Qemu设备树是qemu-system-aarch64命令运行过程中动态生成的，且支持通过命令行参数形式输出设备配置信息。
 
 ## 设备树二进制文件
 ```C
@@ -429,4 +429,4 @@ dtc -O dts -o qemu-virt.dts  qemu-virt.dtb
 	};
 };
 ```
-&emsp;&emsp;上上是qemu-system-aarch64设备树配置文件的全部内容。
+&emsp;&emsp;上述是qemu-system-aarch64设备树配置文件的全部内容。
