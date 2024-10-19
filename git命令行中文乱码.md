@@ -40,7 +40,9 @@ git config --global core.quotepath false
 &emsp;&emsp;将git配置文件.gitconfig的core.quotepath项设置为false。
 
 **2.手动修改**
+
 &emsp;&emsp;手动将home目录下的.gitconfig文件的quotepath属性修改为false：
+
 ```c
 ws@ubuntu:~/Src/linux_learning$ cat ~/.gitconfig 
 [user]
