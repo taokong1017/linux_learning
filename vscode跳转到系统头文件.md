@@ -8,18 +8,20 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**" //包含当前工作区下的所有文件
+                "${workspaceFolder}/**"
             ],
             "defines": [],
-            "compilerPath": "",
-            "cStandard": "c89",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
             "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerArgs": [
+                "-nostdinc",
+                "-I${workspaceFolder}/include",
+                "-v"
+            ],
             "browse": {
-                "path": [
-                    "${workspaceFolder}"
-                ],
-                "limitSymbolsToIncludedHeaders": true,
-                "databaseFilename": ""
+                "limitSymbolsToIncludedHeaders": true
             }
         }
     ],
